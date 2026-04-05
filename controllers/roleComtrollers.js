@@ -96,8 +96,42 @@ export const getRecords=async(req,res)=>{
   }
     try {
         const records=await Expense.find(filter)
+        if(records.length===0){
+          return res.status(404).json({message:"No records found"})
+        }
         return res.status(200).json({message:"Records fetched successfully",records})
     } catch (error) {
         console.log(error.message)
     }
+}
+
+
+export const getSummary=async(req,res)=>{
+  try {
+   const income=await Expense.aggregate([
+    { $match:{type:"income"} },
+    { $group:{
+      _id:"$type",
+      total:{$sum:"$amount"}
+    } }
+   ])
+   const expense=await Expense.aggregate([
+    { $match:{type:"expense"} },
+    { $group:{
+      _id:"$type",
+      total:{$sum:"$amount"}
+    } }
+   ])
+   const totalIncome=income[0]?.total || 0
+   const totalExpense=expense[0]?.total || 0
+   const balance=totalIncome-totalExpense
+   const summary={
+    totalIncome,
+    totalExpense,
+    balance
+   }
+    return res.status(200).json({message:"Summary fetched successfully",summary})
+  } catch (error) {
+    console.log(error.message)
+  }
 }
