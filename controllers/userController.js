@@ -1,7 +1,7 @@
 
 import { Expense } from "../models/expenseModel.js"
 
-// all
+// get records controller
 export const getRecords=async(req,res)=>{
   const {type,category}=req.query
   const filter={}

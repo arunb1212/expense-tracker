@@ -1,6 +1,9 @@
 
 import { Expense } from "../models/expenseModel.js"
 
+
+
+// dashboard controller
 export const getSummary=async(req,res)=>{
   try {
    const income=await Expense.aggregate([

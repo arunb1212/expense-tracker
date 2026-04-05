@@ -1,7 +1,7 @@
 import { Expense } from "../models/expenseModel.js"
 import { User } from "../models/userModel.js";
 
-// admin 
+// create record controller
 export const createRecord = async (req, res) => {
   try {
     const { date, amount, type, note, category } = req.body;
@@ -26,7 +26,7 @@ export const createRecord = async (req, res) => {
   }
 };
 
-// admin
+// update record controller
 export const updateRecord = async (req, res) => {
   try {
     const record = await User.findByIdAndUpdate(
@@ -46,7 +46,7 @@ if (!record) {
   }
 };
 
-// admin
+// delete record controller
 export const deleteRecord=async(req,res)=>{
     try {
         const record=await Expense.findByIdAndDelete(req.params.id)
