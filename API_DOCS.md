@@ -9,6 +9,7 @@ Registers a new user and returns a JWT token via cookies.
 
 - **URL:** `/auth/register`
 - **Method:** `POST`
+- **Controller:** `authControllers.js`
 - **Required Body Data:**
   ```json
   {
@@ -30,6 +31,7 @@ Authenticates an existing user and returns a JWT token via cookies.
 
 - **URL:** `/auth/login`
 - **Method:** `POST`
+- **Controller:** `authControllers.js`
 - **Required Body Data:**
   ```json
   {
@@ -53,6 +55,7 @@ Authenticates an existing user and returns a JWT token via cookies.
 ### 3. Create a Financial Record
 - **URL:** `/access/records/create`
 - **Method:** `POST`
+- **Controller:** `adminControllers.js`
 - **Required Role:** `admin`
 - **Required Body Data:**
   ```json
@@ -71,6 +74,7 @@ Authenticates an existing user and returns a JWT token via cookies.
 ### 4. Update a Record
 - **URL:** `/access/records/update/:id`
 - **Method:** `POST`
+- **Controller:** `adminControllers.js`
 - **Required Role:** `admin`
 - **Dynamic URL Params:** `id=[ObjectId]`
 - **Optional Body Data:** Any field from the record to be altered (e.g., `amount`, `category`, `type`).
@@ -84,6 +88,7 @@ Authenticates an existing user and returns a JWT token via cookies.
 ### 5. Delete a Record
 - **URL:** `/access/records/delete/:id`
 - **Method:** `POST`
+- **Controller:** `adminControllers.js`
 - **Required Role:** `admin`
 - **Dynamic URL Params:** `id=[ObjectId]`
 - **Success Response:**
@@ -98,6 +103,7 @@ Retrieves all records or filtered records matching standard URL query parameters
 
 - **URL:** `/access/records`
 - **Method:** `GET`
+- **Controller:** `userController.js`
 - **Required Role:** `admin`, `analyst`
 - **Optional URL Query Params:** 
   - `?type=` (e.g. `?type=income`)
@@ -114,6 +120,7 @@ Calculates aggregated lifetime earnings, operational expenses, and total remaini
 
 - **URL:** `/access/dashboard/summary`
 - **Method:** `GET`
+- **Controller:** `dashboardController.js`
 - **Required Role:** `admin`, `analyst`, `user`
 - **Success Response:**
   - **Code:** `200 OK`

@@ -21,7 +21,23 @@ A Node.js & Express based RESTful API for tracking incomes and expenses with bui
 
 ---
 
-## 📂 Models
+## 📂 Folder & File Structure
+
+- **`models/`**: 
+  - `userModel.js`: Schema for users.
+  - `expenseModel.js`: Schema for financial transactions.
+- **`controllers/`**: 
+  - `authControllers.js`: User authentication (register/login).
+  - `adminControllers.js`: Handles CRUD operations for records.
+  - `userController.js`: Handles retrieving filtered records.
+  - `dashboardController.js`: Generates aggregation summaries.
+- **`routes/`**: 
+  - `authroutes.js`: Public routes.
+  - `recordroutes.js`: Role-secured routes (`/api/access`).
+
+---
+
+## 🛠️ Models
 
 ### 1. **User**
 - `name` (String)
