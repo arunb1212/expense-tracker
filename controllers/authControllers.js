@@ -1,5 +1,5 @@
 // register controller
-import {User} from "../models/userSchema.js"
+import {User} from "../models/userModel.js"
 import bcrypt from "bcryptjs"
 import jwt from "jsonwebtoken"
 export const register=async(req,res)=>{
